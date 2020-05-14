@@ -1,0 +1,69 @@
+﻿## global config
+# spring config
+spring:
+  profiles:
+        active: dev
+  mvc:
+    static-path-pattern: /**
+    favicon:
+      enabled: false
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${fileProps.uploadPath}
+
+# Mybatis配置
+mybatis:
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath:mappings/**/*.xml
+    # 加载全局的配置文件
+    configLocation: classpath:mybatis-config.xml
+mapper:
+    not-empty: false
+    identity: MYSQL
+    style: camelhumpanduppercase
+    enable-method-annotation: true
+    
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    
+#jwt配置
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 2592000
+  tokenHead: "Bearer "
+  deadTime: 604800
+  #secret: "Lu Xiang Auth" #签名秘钥
+  secretMD5: 20d9c9639b5bf0cc24e57dcb35b19108 #签名秘钥MD5加密
+
+templates:
+  dir: /templets/
+  budgetSummary: budgetSummary.ftl
+  budgetCodeUseDetails: budgetCodeUseDetails.ftl
+  budgetDeptUseDetails: budgetDeptUseDetails.ftl
+    
+#系统全局属性设置
+system:
+    initPassword: 123456
+    
+server:
+  servlet-path: /
+  compression:
+    enabled: true
+    mime-types:
+    - application/json
+    - application/xml
+    - text/html
+    - text/xml
+    - text/plain
+    min-response-size: 2048
+  tomcat:
+    basedir: target/tomcat
+    accesslog:
+      enabled: true
+      directory: logs
+    max-threads: 200
+    uri-encoding: UTF-8
+    

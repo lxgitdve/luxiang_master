@@ -1,0 +1,40 @@
+﻿# Server port
+server:
+  port: 8090
+
+# MySQL config
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8
+#    username: root
+#    password: 123456
+    
+    url: jdbc:mysql://192.168.200.39:3306/test?characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&autoReconnectForPools=true
+    username: root
+    password: mangguo$$2018##
+    
+  redis: 
+    host: 192.168.200.39
+    password: 39redqws123
+    port: 6379
+    database: 1
+    timeout: 20000
+    pool:
+      max-active: 8
+      max-idle: 8
+      min-idle: 0
+      max-wait: -1
+
+swagger:
+  enable: true     
+
+#文件上传路径，注意要以/结尾，window路径例如：D:\test\upload\
+fileProps:
+  uploadPath: D:/project/GitHub/spring-boot/spring-boot-api-project-seed-master/fileupload/
+  uploadPathTemp: D:/project/GitHub/spring-boot/spring-boot-api-project-seed-master/fileuploadtemp/
+  pathPrefix: atts/
+  suffix: jpg,png,jpeg,gif,bmp,txt,doc,docx,xls,xlsx,pdf,zip,rar
+  
+
+
